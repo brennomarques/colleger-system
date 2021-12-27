@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\{TeacherController};
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,11 @@ use Illuminate\Support\Facades\Route;
 Route::view('dashboard', 'dashboard/dashboard')->name('dashboard');;
 // Route::get('/dashboard', [DashboardController::class, 'generalSearch'])->name('dashboard');
 Route::redirect('/', 'dashboard', 301);
+
+Route::get('/professor', [TeacherController::class, 'list'])->name('listTeacher');
+Route::get('/professor/criar', [TeacherController::class, 'newTeacher'])->name('newTeacher');
+Route::post('/professor', [TeacherController::class, 'createTeacher'])->name('createTeacher');
+Route::get('/professor/editar/{id}', [TeacherController::class, 'editTeacher'])->name('editTeacher');
+Route::put('/professor/{id}', [TeacherController::class, 'updateTeacher'])->name('updateTeacher');
+Route::get('/professor/{id}', [TeacherController::class, 'searchTeacher'])->name('searchTeacher');
+Route::delete('/professor/{id}', [TeacherController::class, 'deleteTeacher'])->name('deleteTeacher');

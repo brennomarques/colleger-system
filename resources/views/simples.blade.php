@@ -17,7 +17,7 @@
   <body>
     <nav class="navbar navbar-light navbar-expand-md" style="background-color: #e3f2fd;">
         <div class="container-fluid">
-            <a class="navbar-brand" href="">
+            <a class="navbar-brand" href="{{ route('dashboard') }}">
                 <img src="{{{ asset('img/logo.png') }}}" class="d-inline-block align-text-top">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -33,11 +33,11 @@
                             Professores
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="report">
-                            <li><a class="dropdown-item" href="">Listar</a></li>
+                            <li><a class="dropdown-item" href="{{ route('listTeacher') }}">Listar</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="">Cadastrar</a></li>
+                            <li><a class="dropdown-item" href="{{ route('newTeacher') }}">Cadastrar</a></li>
                         </ul>
                     </li>
 

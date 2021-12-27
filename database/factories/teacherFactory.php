@@ -13,10 +13,12 @@ class teacherFactory extends Factory
      */
     public function definition()
     {
+        $competences = array('Doutor', 'Mestre', 'Aluno', 'Pós-graduado');
+
         return [
             "name" => $this->faker->name(),
             "register" => $this->faker->ean8(),
-            "competence" => $this->faker->title(),
+            "competence" => $competences[random_int(0, 3)],
             "schooling" => $this->faker->sentence(),
         ];
     }
