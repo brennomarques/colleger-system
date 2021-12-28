@@ -14,17 +14,17 @@ class TeacherResource extends JsonResource
      */
     public function toArray($request)
     {
-        return [
-            'id' => $this->id,
-            'name' => $this->name,
-            'register' => $this->register,
-            'competence' => $this->competence,
-            'schooling' => $this->schooling,
-            'created_at' => $this->created_at,
-            'updated_at' => $this->updated_at,
-        ];
+        // return [
+        //     'id' => $this->id,
+        //     'name' => $this->name,
+        //     'register' => $this->register,
+        //     'competence' => $this->competence,
+        //     'schooling' => $this->schooling,
+        //     'created_at' => $this->created_at,
+        //     'updated_at' => $this->updated_at,
+        // ];
 
-        // return parent::toArray($request);
+        return parent::toArray($request);
     }
 
     public function with($request)

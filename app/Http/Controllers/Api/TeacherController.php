@@ -10,15 +10,28 @@ use Illuminate\Http\Request;
 
 class TeacherController extends Controller
 {
+    private $model;
+
+    public function __construct(teacher $model) {
+        $this->model = $model;
+    }
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $teachers = teacher::paginate(8);
-        return new TeacherResourceCollection($teachers);
+        // $teachers = teacher::paginate(8);
+        $teachers = $this->model;
+
+        if ($request->has('fields')) {
+            $fields = $request->get('fields');
+            $teachers = $teachers->selectRaw($fields);
+        }
+
+        return new TeacherResourceCollection($teachers->paginate(8));
         // return Response()->json($teachers);
     }
 

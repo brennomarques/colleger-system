@@ -2,7 +2,10 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\Exceptions\HttpResponseException;
+use Illuminate\Support\Facades\Http;
 
 class ValidateTeacher extends FormRequest
 {
@@ -39,5 +42,11 @@ class ValidateTeacher extends FormRequest
             "competence.required" => "O campo competência é obrigatório.",
             "schooling.required" => "O campo nome da escolaridade é obrigatório.",
         ];
+    }
+
+    public function failedValidation(Validator $validator)
+    {
+        $infos = ['success'=> false, 'message'=> 'Erro de validação', 'error' => $validator->errors()];
+        throw new HttpResponseException(response()->json($infos));
     }
 }
