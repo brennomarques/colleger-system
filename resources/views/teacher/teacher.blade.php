@@ -49,6 +49,20 @@
                 @endforeach
             </tbody>
         </table>
+
+        <nav aria-label="Page navigation bb">
+            <ul class="pagination justify-content-end">
+                <li class="page-item">
+                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Anterior</a>
+                </li>
+
+                <li class="page-item disabled" title="Pagina Atual"><a class="page-link">1</a></li>
+
+                <li class="page-item">
+                    <a class="page-link" href="#">Proximo</a>
+                </li>
+            </ul>
+        </nav>
     </div>
 
 

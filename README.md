@@ -25,6 +25,9 @@ $ php artisan key:generate
 # Rodar as migrations para criar as tabelas no banco de dados
 $ php artisan migrate
 
+# Execute o comando para popular as tabelas no banco de dados
+$ php artisan migrate:fresh --seed
+
 # Execute a aplicação em modo de desenvolvimento
 $ php artisan serve
 

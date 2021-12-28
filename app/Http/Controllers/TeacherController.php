@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class TeacherController extends Controller
 {
     public function list(){
-        $teachers = teacher::all();
+        $teachers = teacher::paginate(8);
         return view('teacher.teacher',compact('teachers'));
     }
 

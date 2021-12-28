@@ -102,6 +102,9 @@
                     </li>
 
                 </ul>
+
+                <a class="nav-link" href="{{ route('logout') }}">Sair</a>
+
                 <form class="d-flex">
                     <input class="form-control me-2" type="search" placeholder="Pesquisar algo" aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">Pesquisar</button>
