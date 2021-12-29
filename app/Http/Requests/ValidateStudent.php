@@ -50,9 +50,9 @@ class ValidateStudent extends FormRequest
         ];
     }
 
-    public function failedValidation(Validator $validator)
-    {
-        $infos = ['success'=> false, 'message'=> 'Erro de validação', 'error' => $validator->errors()];
-        throw new HttpResponseException(response()->json($infos));
-    }
+    // public function failedValidation(Validator $validator)
+    // {
+    //     $infos = ['success'=> false, 'message'=> 'Erro de validação', 'error' => $validator->errors()];
+    //     throw new HttpResponseException(response()->json($infos));
+    // }
 }

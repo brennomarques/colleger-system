@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\{AuthController, Feedback, StudentController, TeacherController};
+use App\Http\Controllers\{AuthController, Feedback, PlanController, StudentController, TeacherController};
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,16 +32,21 @@ Route::middleware('validatePermission')->group(function() {
     Route::get('/professor/{id}', [TeacherController::class, 'searchTeacher'])->name('searchTeacher');
     Route::delete('/professor/{id}', [TeacherController::class, 'deleteTeacher'])->name('deleteTeacher');
 
-    Route::get('/aluno', [StudentController::class, 'list'])->name('listStudent'); // ok
-    Route::get('/aluno/criar', [StudentController::class, 'newStudent'])->name('newStudent'); // ok
+    Route::get('/aluno', [StudentController::class, 'list'])->name('listStudent');
+    Route::get('/aluno/criar', [StudentController::class, 'newStudent'])->name('newStudent');
     Route::post('/aluno', [StudentController::class, 'createStudent'])->name('createStudent');
-
     Route::get('/aluno/editar/{id}', [StudentController::class, 'editStudent'])->name('editStudent');
     Route::put('/aluno/{id}', [StudentController::class, 'updateStudent'])->name('updateStudent');
+    Route::get('/aluno/{id}', [StudentController::class, 'searchStudent'])->name('searchStudent');
+    Route::delete('/aluno/{id}', [StudentController::class, 'deleteStudent'])->name('deleteStudent');
 
-    Route::get('/aluno/{id}', [StudentController::class, 'searchStudent'])->name('searchStudent'); // ok
-
-    Route::delete('/aluno/{id}', [StudentController::class, 'deleteStudent'])->name('deleteStudent'); // ok
+    Route::get('/plano', [PlanController::class, 'listPlan'])->name('listPlan');
+    Route::get('/plano/criar', [PlanController::class, 'newPlan'])->name('newPlan');
+    Route::get('/plano/{id}', [PlanController::class, 'searchPlan'])->name('searchPlan');
+    Route::post('/plano', [PlanController::class, 'createPlan'])->name('createPlan');
+    Route::put('/plano/{id}', [PlanController::class, 'updatePlan'])->name('updatePlan');
+    Route::get('/plano/editar/{id}', [PlanController::class, 'editPlan'])->name('editPlan');
+    Route::delete('/plano/{id}', [PlanController::class, 'deletePlan'])->name('deletePlan');
 
 });
 

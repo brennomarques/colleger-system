@@ -13,16 +13,16 @@ class StudentController extends Controller
         return view('student.student',compact('students'));
     }
 
-    function searchStudent($id) {
+    public function searchStudent($id) {
         $student = Student::find($id);
         return view('student.studentDatails', compact('student'));
     }
 
-    function newStudent() {
+    public function newStudent() {
         return view("student.createStudent");
     }
 
-    function createStudent(ValidateStudent $payload) {
+    public function createStudent(ValidateStudent $payload) {
 
         $response = Student::create($payload->all());
 
@@ -33,7 +33,7 @@ class StudentController extends Controller
 
     }
 
-    function editStudent($id) {
+    public function editStudent($id) {
 
         $student = Student::find($id);
         if (!$student) {
@@ -43,7 +43,7 @@ class StudentController extends Controller
         return view('student.editStudent', compact('student'));
     }
 
-    function updateStudent(ValidateStudent $payload, $id) {
+    public function updateStudent(ValidateStudent $payload, $id) {
 
         $student = Student::find($id);
         if (!$student) {
@@ -54,7 +54,7 @@ class StudentController extends Controller
         return redirect()->route('listStudent')->with("messages", "O aluno {$student->name} atualizado com sucesso!");
     }
 
-    function deleteStudent($id) {
+    public function deleteStudent($id) {
         $response = Student::find($id);
 
         if (!$response){

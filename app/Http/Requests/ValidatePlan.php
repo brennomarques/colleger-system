@@ -5,9 +5,8 @@ namespace App\Http\Requests;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
-use Illuminate\Support\Facades\Http;
 
-class ValidateTeacher extends FormRequest
+class ValidatePlan extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -28,9 +27,8 @@ class ValidateTeacher extends FormRequest
     {
         return [
             "name" => "required|min:3|max:50",
-            "register" => ["required", "min: 5"],
-            "competence" => ["required", "max: 200"],
-            "schooling" => ["required", "max: 200"],
+            "discount" => ["required"],
+            "note" => ["required", "min: 4"],
         ];
     }
 
@@ -38,9 +36,8 @@ class ValidateTeacher extends FormRequest
     {
         return [
             "name.required" => "O campo nome é obrigatório.",
-            "register.required" => "O campo matricula é obrigatório.",
-            "competence.required" => "O campo competência é obrigatório.",
-            "schooling.required" => "O campo nome da escolaridade é obrigatório.",
+            "discount.required" => "O campo desconto é obrigatório.",
+            "note.required" => "O campo observação é obrigatório.",
         ];
     }
 

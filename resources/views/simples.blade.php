@@ -75,11 +75,11 @@
                             Planos financeiro
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="report">
-                            <li><a class="dropdown-item" href="">Listar</a></li>
+                            <li><a class="dropdown-item" href="{{ route('listPlan') }}">Listar</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="">Cadastrar</a></li>
+                            <li><a class="dropdown-item" href="{{ route('newPlan') }}">Cadastrar</a></li>
                         </ul>
                     </li>
 
