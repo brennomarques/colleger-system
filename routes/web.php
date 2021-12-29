@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\{AuthController, Feedback, PlanController, StudentController, TeacherController};
+use App\Http\Controllers\{AuthController, DashboardController, Feedback, PlanController, StudentController, TeacherController};
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,8 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::view('dashboard', 'dashboard/dashboard')->middleware('validatePermission')->name('dashboard');;
-// Route::get('/dashboard', [DashboardController::class, 'generalSearch'])->name('dashboard');
+// Route::view('dashboard', 'dashboard/dashboard')->middleware('validatePermission')->name('dashboard');;
+Route::get('/dashboard', [DashboardController::class, 'generalSearch'])->middleware('validatePermission')->name('dashboard');
 Route::redirect('/', 'dashboard', 301);
 
 Route::get('/login', [AuthController::class, 'login'])->name('login');
