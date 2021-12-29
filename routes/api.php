@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Api\TeacherController;
+use App\Http\Controllers\Api\{StudentController, TeacherController};
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Route;
@@ -21,3 +21,4 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::resource('/professor', TeacherController::class)->only(['index', 'show'])->middleware('auth.basic');
+Route::resource('/aluno', StudentController::class)->only(['index', 'show'])->middleware('auth.basic');

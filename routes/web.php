@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\{AuthController, Feedback, TeacherController};
+use App\Http\Controllers\{AuthController, Feedback, StudentController, TeacherController};
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,5 +32,17 @@ Route::middleware('validatePermission')->group(function() {
     Route::get('/professor/{id}', [TeacherController::class, 'searchTeacher'])->name('searchTeacher');
     Route::delete('/professor/{id}', [TeacherController::class, 'deleteTeacher'])->name('deleteTeacher');
 
+    Route::get('/aluno', [StudentController::class, 'list'])->name('listStudent'); // ok
+    Route::get('/aluno/criar', [StudentController::class, 'newStudent'])->name('newStudent'); // ok
+    Route::post('/aluno', [StudentController::class, 'createStudent'])->name('createStudent');
+
+    Route::get('/aluno/editar/{id}', [StudentController::class, 'editStudent'])->name('editStudent');
+    Route::put('/aluno/{id}', [StudentController::class, 'updateStudent'])->name('updateStudent');
+
+    Route::get('/aluno/{id}', [StudentController::class, 'searchStudent'])->name('searchStudent'); // ok
+
+    Route::delete('/aluno/{id}', [StudentController::class, 'deleteStudent'])->name('deleteStudent'); // ok
+
 });
+
 
