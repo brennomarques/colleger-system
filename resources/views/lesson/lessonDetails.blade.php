@@ -3,7 +3,7 @@
 
     <div class="container">
         <div class="d-flex justify-content-center mt-5" style="color: #013d52;">
-            <h1>Detalhes do professor</h1>
+            <h1>Detalhes da aula</h1>
         </div>
         <div class="container mt-5 shadow-sm p-3 mb-5 bg-body rounded">
             <table class="table">

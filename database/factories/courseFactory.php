@@ -13,12 +13,14 @@ class courseFactory extends Factory
      */
     public function definition()
     {
+        $coursenames = array('PHP', 'Java', 'Javascript', 'C#', 'C++');
+
         return [
-            'coursename' => $this->faker->name(),
+            'coursename' => $coursenames[random_int(0,4)],
             'qntmax' => $this->faker->numberBetween(10,20),
             'createdate' => $this->faker->date('Y-m-d H:i:s'),
             'updatedate' => $this->faker->date('Y-m-d H:i:s'),
-            'category' =>  $this->faker->jobTitle(),
+            'category' =>  'Programação',
             'monthlypayment' => $this->faker->numberBetween(1000,3000),
         ];
     }

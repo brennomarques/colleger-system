@@ -12,7 +12,7 @@
                             <div class='px-3 py-3 d-flex justify-content-between'>
                                 <h3 class='card-title'>Professores</h3>
                                 <div class="card-right d-flex align-items-center">
-                                    <p>{{ $users ?? 0 }} Pessoas</p>
+                                    <p>{{ $teachers ?? 0 }} Pessoas</p>
                                 </div>
                             </div>
                         </div>
@@ -27,7 +27,7 @@
                             <div class='px-3 py-3 d-flex justify-content-between'>
                                 <h3 class='card-title'>Alunos</h3>
                                 <div class="card-right d-flex align-items-center">
-                                    <p>{{$items ?? 0}} Registros</p>
+                                    <p>{{$students ?? 0}} Registros</p>
                                 </div>
                             </div>
                         </div>
@@ -70,21 +70,22 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header" style="color: #013d52;">
-                        <h3 class='card-heading p-1 pl-3'>Plano financeiro</h3>
+                        <h3 class='card-heading p-1 pl-3'>Plano financeiro: {{ $plans }}</h3>
                     </div>
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-4 col-12">
                                 <div class="pl-3">
-                                    <h1 class='mt-5'>R$ {{$total ?? 0}}</h1>
+                                    <h3>Total de desconto</h3>
+                                    <h1 class='mt-4'>R$ {{$total ?? 0}}</h1>
                                     <p class='text-xs'><span class="text-green"><i data-feather="bar-chart" width="15"></i> +19%</span> que no mês passado</p>
                                     <div class="legends">
-                                        <div class="legend d-flex flex-row align-items-center">
+                                        <div class="legend d-flex flex-row align-items-center mb-2">
                                             <div class='w-3 h-3 rounded-full bg-info mr-2'></div><span class='text-xs'>Mês passado</span>
                                         </div>
-                                        <div class="legend d-flex flex-row align-items-center">
+                                        {{-- <div class="legend d-flex flex-row align-items-center">
                                             <div class='w-3 h-3 rounded-full bg-blue mr-2'></div><span class='text-xs'>Mês atual</span>
-                                        </div>
+                                        </div> --}}
                                     </div>
                                 </div>
                             </div>

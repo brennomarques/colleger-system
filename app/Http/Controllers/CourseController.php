@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CourseRequest;
 use App\Http\Requests\ValidateTeacher;
 use App\Models\course;
+use App\Models\lesson;
 use App\Models\teacher;
 use Illuminate\Http\Request;
 
@@ -17,7 +18,11 @@ class CourseController extends Controller
 
     function searchCourse($id) {
         $course = course::find($id);
-        return view('course.courseDatails', compact('course'));
+        
+        $lessons = lesson::all();
+        $lessons =  $lessons->where('courseid', '=', $id);
+
+        return view('course.courseDatails', compact('course','lessons'));
     }
 
     function newCourse() {

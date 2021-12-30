@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\{AuthController, Feedback, TeacherController, CourseController, LessonController};
+use App\Http\Controllers\{AuthController, DashboardController, Feedback, PlanController, StudentController, TeacherController, CourseController, LessonController};
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,8 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::view('dashboard', 'dashboard/dashboard')->middleware('validatePermission')->name('dashboard');;
-// Route::get('/dashboard', [DashboardController::class, 'generalSearch'])->name('dashboard');
+// Route::view('dashboard', 'dashboard/dashboard')->middleware('validatePermission')->name('dashboard');;
+Route::get('/dashboard', [DashboardController::class, 'generalSearch'])->middleware('validatePermission')->name('dashboard');
 Route::redirect('/', 'dashboard', 301);
 
 Route::get('/login', [AuthController::class, 'login'])->name('login');
@@ -47,4 +47,23 @@ Route::middleware('validatePermission')->group(function() {
     Route::put('/aula/{id}', [LessonController::class, 'updateLesson'])->name('updateLesson');
     Route::get('/aula/{id}', [LessonController::class, 'searchLesson'])->name('searchLesson');
     Route::delete('/aula/{id}', [LessonController::class, 'deleteLesson'])->name('deleteLesson');
+
+    Route::get('/aluno', [StudentController::class, 'list'])->name('listStudent');
+    Route::get('/aluno/criar', [StudentController::class, 'newStudent'])->name('newStudent');
+    Route::post('/aluno', [StudentController::class, 'createStudent'])->name('createStudent');
+    Route::get('/aluno/editar/{id}', [StudentController::class, 'editStudent'])->name('editStudent');
+    Route::put('/aluno/{id}', [StudentController::class, 'updateStudent'])->name('updateStudent');
+    Route::get('/aluno/{id}', [StudentController::class, 'searchStudent'])->name('searchStudent');
+    Route::delete('/aluno/{id}', [StudentController::class, 'deleteStudent'])->name('deleteStudent');
+
+    Route::get('/plano', [PlanController::class, 'listPlan'])->name('listPlan');
+    Route::get('/plano/criar', [PlanController::class, 'newPlan'])->name('newPlan');
+    Route::get('/plano/{id}', [PlanController::class, 'searchPlan'])->name('searchPlan');
+    Route::post('/plano', [PlanController::class, 'createPlan'])->name('createPlan');
+    Route::put('/plano/{id}', [PlanController::class, 'updatePlan'])->name('updatePlan');
+    Route::get('/plano/editar/{id}', [PlanController::class, 'editPlan'])->name('editPlan');
+    Route::delete('/plano/{id}', [PlanController::class, 'deletePlan'])->name('deletePlan');
+
 });
+
+

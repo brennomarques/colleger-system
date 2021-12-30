@@ -26,11 +26,11 @@ class CourseRequest extends FormRequest
     public function rules()
     {
         return [
-            "coursename" => ["required", "min: 5"],
+            "coursename" => ["required"],
             "qntmax" => ["required"],
             "createdate" => ["required"],
             "updatedate" => ["required"],
-            "category" => ["required", "max:200"],
+            "category" => ["required"],
             "monthlypayment" => ["required"]
         ];
     }

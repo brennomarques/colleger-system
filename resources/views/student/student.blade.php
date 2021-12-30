@@ -16,7 +16,7 @@
     @endif
 
     <div class="d-flex justify-content-center mt-5" style="color: #013d52;">
-        <h1>Listar de aulas</h1>
+        <h1>Listar de alunos</h1>
     </div>
 
     <div class="container mt-5 shadow-sm p-3 mb-5 bg-body rounded">
@@ -24,21 +24,26 @@
             <thead>
                 <tr>
                 <th scope="col">#</th>
-                <th scope="col">Número</th>
-                <th scope="col">Tema</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Matricula</th>
+                <th scope="col">CPF</th>
+                <th scope="col">Data narcimento</th>
+                <th scope="col">Ação</th>
 
             </thead>
             <tbody>
-                @foreach ($lessons as $lesson)
+                @foreach ($students as $student)
                     <tr>
-                        <th scope="row">{{$lesson->id}}</th>
-                        <td>{{$lesson->lessonnumber}}</td>
-                        <td>{{$lesson->theme}}</td>
-                        <td width="10"><a href="{{route('searchLesson', $lesson->id)}}" class="btn btn-outline-primary" title="Ver detalhes"><i class="fa fa-eye"></i></a></td>
-                        <td width="10"><a href="{{route('editLesson', $lesson->id)}}" class="btn btn-outline-success" title="Editar"><i class="far fa-edit"></i></i></a></td>
+                        <th scope="row">{{$student->id}}</th>
+                        <td>{{$student->name}}</td>
+                        <td>{{$student->register}}</td>
+                        <td>{{$student->cpf}}</td>
+                        <td>{{$student->birth}}</td>
+                        <td width="10"><a href="{{route('searchStudent', $student->id)}}" class="btn btn-outline-primary" title="Ver detalhes"><i class="fa fa-eye"></i></a></td>
+                        <td width="10"><a href="{{route('editStudent', $student->id)}}" class="btn btn-outline-success" title="Editar"><i class="far fa-edit"></i></i></a></td>
 
                         <td width="10">
-                            <form action="{{route('deleteLesson', $lesson->id)}}" method="post">
+                            <form action="{{route('deleteStudent', $student->id)}}" method="post">
                                 @csrf
                                 <input type="hidden" name="_method" value="delete">
                                 <button type="submit" class="btn btn-outline-danger"><i class="fa fa-trash-alt"></i></button>

@@ -38,10 +38,34 @@
                     </tbody>
 
             </table>
-            <div class="d-flex justify-content-center mt-5 mb-5">
-                <a href="{{route('listTeacher')}}" class="btn btn-outline-primary btn-lg" title="Voltar">Voltar</a>
+
+            <div class="d-flex justify-content-center mt-5" style="color: #013d52;">
+                <h2>Aulas ministradas</h2>
             </div>
 
+            <table class="table">
+                <thead>
+                    <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Número</th>
+                    <th scope="col">Tema</th>
+    
+                </thead>
+                <tbody>
+                    @foreach ($lessons as $lesson)
+                        <tr>
+                            <th scope="row">{{$lesson->id}}</th>
+                            <td>{{$lesson->lessonnumber}}</td>
+                            <td>{{$lesson->theme}}</td>
+                            
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+    
+            <div class="d-flex justify-content-center mt-5 mb-5">
+                <a href="{{route('listTeacher')}}" class="btn btn-outline-primary btn-lg" title="Voltar">Voltar</a>
+            </div> 
         </div>
     </div>
 

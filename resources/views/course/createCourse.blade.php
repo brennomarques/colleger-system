@@ -12,7 +12,7 @@
                 <div>
                     @foreach ($errors->all() as $error)
                         {{ $error }}
-                    @endforeach --}}
+                    @endforeach
                 </div>
             </div>
     @endif

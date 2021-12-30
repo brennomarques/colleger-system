@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ValidateTeacher;
+use App\Models\lesson;
 use App\Models\teacher;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,11 @@ class TeacherController extends Controller
 
     function searchTeacher($id) {
         $teacher = teacher::find($id);
-        return view('teacher.teacherDatails', compact('teacher'));
+
+        $lessons = lesson::all();
+        $lessons =  $lessons->where('teacherid', '=', $id);
+
+        return view('teacher.teacherDatails', compact('teacher','lessons'));
     }
 
     function newTeacher() {
