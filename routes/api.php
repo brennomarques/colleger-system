@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Api\CourseController;
+use App\Http\Controllers\Api\LessonController;
 use App\Http\Controllers\Api\TeacherController;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -20,4 +22,6 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
+Route::resource('/curso', CourseController::class)->only(['index', 'show'])->middleware('auth.basic');
+Route::resource('/aula', LessonController::class)->only(['index', 'show'])->middleware('auth.basic');
 Route::resource('/professor', TeacherController::class)->only(['index', 'show'])->middleware('auth.basic');

@@ -10,46 +10,51 @@
         <div class="alert alert-danger d-flex justify-content-center" role="alert">
             <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
                 <div>
-                    @if (count($errors->all()) > 1)
-                        Todos os campos são obrigatórios
-                    @else
-                        @foreach ($errors->all() as $error)
-                            {{ $error }}
-                        @endforeach
-                    @endif
-
+                    @foreach ($errors->all() as $error)
+                        {{ $error }}
+                    @endforeach --}}
                 </div>
             </div>
     @endif
 
     <div class="d-flex justify-content-center mt-5" style="color: #013d52;">
-        <h1>Cadastrar novo professor</h1>
+        <h1>Cadastrar novo curso</h1>
     </div>
 
     <div class="container mt-5">
-        <form action="{{route('createTeacher')}}" method="post" class="row g-3 shadow-lg p-3 mb-5 bg-body rounded">
+        <form action="{{route('createCourse')}}" method="post" class="row g-3 shadow-lg p-3 mb-5 bg-body rounded">
 
             @csrf
 
             <div class="col-md-4">
-              <label class="form-label">Name</label>
-              <input type="text" class="form-control" name="name" value="{{ old("name") }}">
+              <label class="form-label">Nome do curso</label>
+              <input type="text" class="form-control" name="coursename" value="{{ old("coursename") }}">
             </div>
 
             <div class="col-md-4">
-              <label class="form-label">Matricula</label>
-              <input type="number" class="form-control" name="register" value="{{ old("register") }}">
+              <label class="form-label">Quantidade máxima</label>
+              <input type="number" class="form-control" name="qntmax" value="{{ old("qntmax") }}">
             </div>
 
             <div class="col-md-4">
-              <label class="form-label">Competência</label>
-              <input type="text" class="form-control" name="competence" value="{{ old("competence") }}">
+              <label class="form-label">Data de criação</label>
+              <input type="text" class="form-control" name="createdate" value="{{ old("createdate") }}">
             </div>
 
             <div class="col-md-3">
-              <label class="form-label">Escolaridade</label>
-              <input type="text" class="form-control" name="schooling" value="{{ old("schooling") }}">
+              <label class="form-label">Data de atualização</label>
+              <input type="text" class="form-control" name="updatedate" value="{{ old("updatedate") }}">
             </div>
+
+            <div class="col-md-3">
+                <label class="form-label">Categoria</label>
+                <input type="text" class="form-control" name="category" value="{{ old("category") }}">
+              </div>
+
+              <div class="col-md-3">
+                <label class="form-label">Mensalidade</label>
+                <input type="text" class="form-control" name="monthlypayment" value="{{ old("category") }}">
+              </div>
 
             <div class="col-12 d-flex justify-content-end mt-5">
               <button type="submit" class="btn btn-primary" title="Salvar informções">Salvar</button>
