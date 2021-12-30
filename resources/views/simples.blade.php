@@ -61,11 +61,11 @@
                             Cursos
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="report">
-                            <li><a class="dropdown-item" href="">Listar</a></li>
+                            <li><a class="dropdown-item" href="{{ route('listCourse') }}">Listar</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="">Cadastrar</a></li>
+                            <li><a class="dropdown-item" href="{{ route('newCourse') }}">Cadastrar</a></li>
                         </ul>
                     </li>
 
@@ -89,11 +89,11 @@
                             Aulas
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="report">
-                            <li><a class="dropdown-item" href="">Listar</a></li>
+                            <li><a class="dropdown-item" href="{{ route('listLesson') }}">Listar</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="">Cadastrar</a></li>
+                            <li><a class="dropdown-item" href="{{ route('newLesson') }}">Cadastrar</a></li>
                         </ul>
                     </li>
 

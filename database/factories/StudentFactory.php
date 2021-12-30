@@ -22,8 +22,8 @@ class StudentFactory extends Factory
             "birth" => $this->faker->date('d-m-y'),
             "financial_officer" => $financial_officer[random_int(0, 5)],
             "cpf" => $this->faker->cpf(),
-            "id_course" => $this->faker->randomNumber(5, true),
-            "id_plan" => $this->faker->randomNumber(5, true),
+            "id_course" => random_int(1, 8),
+            "id_plan" => random_int(1,5),
         ];
 
     }

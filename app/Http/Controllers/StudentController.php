@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ValidateStudent;
-use App\Models\{Student};
+use App\Models\{course, lesson, Plan, Student};
 use Illuminate\Http\Request;
 
 class StudentController extends Controller
@@ -15,7 +15,17 @@ class StudentController extends Controller
 
     public function searchStudent($id) {
         $student = Student::find($id);
-        return view('student.studentDatails', compact('student'));
+
+        $course = Course::find($student->id_course);
+        $monthlyPayment = $course->monthlypayment;
+       
+        $lessons = lesson::all();
+        $lessons =  $lessons->where('courseid', '=', $student->id_course);
+
+        $plan = Plan::all();
+        $plan = $plan->find($student->id_plan);
+
+        return view('student.studentDatails', compact('student','lessons','plan','monthlyPayment'));
     }
 
     public function newStudent() {

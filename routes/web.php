@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\{AuthController, DashboardController, Feedback, PlanController, StudentController, TeacherController};
+use App\Http\Controllers\{AuthController, DashboardController, Feedback, PlanController, StudentController, TeacherController, CourseController, LessonController};
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,6 +31,22 @@ Route::middleware('validatePermission')->group(function() {
     Route::put('/professor/{id}', [TeacherController::class, 'updateTeacher'])->name('updateTeacher');
     Route::get('/professor/{id}', [TeacherController::class, 'searchTeacher'])->name('searchTeacher');
     Route::delete('/professor/{id}', [TeacherController::class, 'deleteTeacher'])->name('deleteTeacher');
+
+    Route::get('/curso', [CourseController::class, 'list'])->name('listCourse');
+    Route::get('/curso/criar', [CourseController::class, 'newCourse'])->name('newCourse');
+    Route::post('/curso', [CourseController::class, 'createCourse'])->name('createCourse');
+    Route::get('/curso/editar/{id}', [CourseController::class, 'editCourse'])->name('editCourse');
+    Route::put('/curso/{id}', [CourseController::class, 'updateCourse'])->name('updateCourse');
+    Route::get('/curso/{id}', [CourseController::class, 'searchCourse'])->name('searchCourse');
+    Route::delete('/curso/{id}', [CourseController::class, 'deleteCourse'])->name('deleteCourse');
+
+    Route::get('/aula', [LessonController::class, 'list'])->name('listLesson');
+    Route::get('/aula/criar', [LessonController::class, 'newLesson'])->name('newLesson');
+    Route::post('/aula', [LessonController::class, 'createLesson'])->name('createLesson');
+    Route::get('/aula/editar/{id}', [LessonController::class, 'editLesson'])->name('editLesson');
+    Route::put('/aula/{id}', [LessonController::class, 'updateLesson'])->name('updateLesson');
+    Route::get('/aula/{id}', [LessonController::class, 'searchLesson'])->name('searchLesson');
+    Route::delete('/aula/{id}', [LessonController::class, 'deleteLesson'])->name('deleteLesson');
 
     Route::get('/aluno', [StudentController::class, 'list'])->name('listStudent');
     Route::get('/aluno/criar', [StudentController::class, 'newStudent'])->name('newStudent');

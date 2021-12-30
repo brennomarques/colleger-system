@@ -23,37 +23,50 @@
     @endif
 
     <div class="d-flex justify-content-center mt-5" style="color: #013d52;">
-        <h1>Cadastrar novo professor</h1>
+        <h1>Atualizar curso {{$course->coursename}}</h1>
     </div>
 
     <div class="container mt-5">
-        <form action="{{route('createTeacher')}}" method="post" class="row g-3 shadow-lg p-3 mb-5 bg-body rounded">
+        <form action="{{route('updateCourse', $course->id)}}" method="post" class="row g-3 shadow-lg p-3 mb-5 bg-body rounded">
 
             @csrf
+            @method('PUT')
+
 
             <div class="col-md-4">
-              <label class="form-label">Name</label>
-              <input type="text" class="form-control" name="name" value="{{ old("name") }}">
+              <label class="form-label">Nome do curso</label>
+              <input type="text" class="form-control" name="coursename" value="{{ $course->coursename }}">
             </div>
 
             <div class="col-md-4">
-              <label class="form-label">Matricula</label>
-              <input type="number" class="form-control" name="register" value="{{ old("register") }}">
+              <label class="form-label">Quantidade máxima</label>
+              <input type="number" class="form-control" name="qntmax" value="{{ $course->qntmax }}">
             </div>
 
             <div class="col-md-4">
-              <label class="form-label">Competência</label>
-              <input type="text" class="form-control" name="competence" value="{{ old("competence") }}">
+              <label class="form-label">Data de criação</label>
+              <input type="text" class="form-control" name="createdate" value="{{ $course->createdate }}">
             </div>
 
             <div class="col-md-3">
-              <label class="form-label">Escolaridade</label>
-              <input type="text" class="form-control" name="schooling" value="{{ old("schooling") }}">
+              <label class="form-label">Data de atualização</label>
+              <input type="text" class="form-control" name="updatedate" value="{{ $course->updatedate }}">
+            </div>
+
+            <div class="col-md-3">
+                <label class="form-label">Categoria</label>
+                <input type="text" class="form-control" name="category" value="{{ $course->category }}">
+            </div>
+
+            <div class="col-md-3">
+                <label class="form-label">Mensalidade</label>
+                <input type="text" class="form-control" name="monthlypayment" value="{{ $course->monthlypayment}}">
             </div>
 
             <div class="col-12 d-flex justify-content-end mt-5">
-              <button type="submit" class="btn btn-primary" title="Salvar informções">Salvar</button>
+              <button type="submit" class="btn btn-primary" title="Salvar informações">Salvar</button>
             </div>
+
         </form>
     </div>
 

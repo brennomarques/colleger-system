@@ -16,7 +16,7 @@ class PlanFactory extends Factory
 
         return [
             "name" => $this->faker->name(),
-            "discount" => $this->faker->randomDigitNot(2),
+            "discount" => random_int(0,100),
             "note" => $this->faker->sentence(),
         ];
     }
